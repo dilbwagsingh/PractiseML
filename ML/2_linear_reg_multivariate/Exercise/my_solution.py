@@ -10,11 +10,12 @@ df.rename(columns = {"test_score(out of 10)" : "tscore", "interview_score(out of
 df.experience.fillna("zero", inplace = True);
 median = df["tscore"].median();
 df["tscore"].fillna(median, inplace= True);
-modified = [];
-for i in range(len(df["experience"])):
-	modified.append(w2n.word_to_num(df.experience[i]));
-df.experience = modified;
+# modified = [];
+# for i in range(len(df["experience"])):
+# 	modified.append(w2n.word_to_num(df.experience[i]));
+# df.experience = modified;
 
+df.experience = df.experience.apply(w2n.word_to_num);
 
 # Training liner regression with multiple variables model
 reg = lm.LinearRegression();
