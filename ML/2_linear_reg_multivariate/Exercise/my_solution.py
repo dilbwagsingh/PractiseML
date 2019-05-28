@@ -10,6 +10,8 @@ df.rename(columns = {"test_score(out of 10)" : "tscore", "interview_score(out of
 df.experience.fillna("zero", inplace = True);
 median = df["tscore"].median();
 df["tscore"].fillna(median, inplace= True);
+
+# Alternatively you can do this too
 # modified = [];
 # for i in range(len(df["experience"])):
 # 	modified.append(w2n.word_to_num(df.experience[i]));
